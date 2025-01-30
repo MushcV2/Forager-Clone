@@ -6,8 +6,8 @@ using UnityEngine.UI;
 [System.Serializable]
 public class Inventory
 {
-    public int amount;
     public GameObject item;
+    public int amount;
 
     public Inventory(GameObject _item, int _amout)
     {
@@ -69,13 +69,12 @@ public class PlayerInventory : MonoBehaviour
         return _selectedSlot;
     }
 
-    private void AddItem(GameObject _obj, int _amount)
+    public void AddItem(GameObject _obj, int _amount)
     {
         GameObject _slot = SelectedInventoryEmpty();
 
         if (_slot == null)
         {
-        
             Debug.Log("Inventario lotado");
             return;
         }
