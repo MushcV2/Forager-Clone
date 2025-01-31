@@ -18,6 +18,6 @@ public class ItemDropped : MonoBehaviour
     {
         if (!_other.gameObject.CompareTag("Player")) return;
 
-        _other.gameObject.GetComponent<PlayerInventory>().AddItem(gameObject, amount, type);
+        _other.gameObject.GetComponent<OLDINVENTORY>().AddItem(gameObject, amount, type);
     }
 }
