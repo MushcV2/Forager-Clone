@@ -25,6 +25,8 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private List<Inventory> inventory = new List<Inventory>();
     [SerializeField] private GameObject slotPrefab;
     [SerializeField] private GameObject inventoryUI;
+    [SerializeField] private GameObject highLight;
+    [SerializeField] private int selectedSlot;
     [SerializeField] private int inventorySize;
 
     public GameObject testOBJ;
@@ -37,6 +39,8 @@ public class PlayerInventory : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F)) AddItem(testOBJ, 1);
+
+        if (Input.anyKeyDown) HighLightSlot();
     }
 
     private void InitInventory()
@@ -54,7 +58,24 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    private int SelectedSlot(GameObject _item)
+    private void HighLightSlot()
+    {
+        for (int i = 1; i <= inventorySize; i++)
+        {
+            if (Input.GetKeyDown("" + i))
+            {
+                highLight.SetActive(true);
+
+                highLight.transform.SetParent(inventoryUI.transform.Find(i.ToString()), false);
+                highLight.transform.SetAsFirstSibling();
+                highLight.transform.position = inventoryUI.transform.Find(i.ToString()).position;
+
+                selectedSlot = i;
+            }
+        }
+    }
+
+    private int SelectSlot(GameObject _item)
     {
         int _slot = -1;
 
@@ -86,7 +107,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItem(GameObject _item, int _amount)
     {
-        int _slotIndex = SelectedSlot(_item);
+        int _slotIndex = SelectSlot(_item);
         if (_slotIndex > -1)
         {
             GameObject _slot = inventory[_slotIndex].slot;
