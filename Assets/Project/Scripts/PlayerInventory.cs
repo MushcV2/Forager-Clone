@@ -63,6 +63,7 @@ public class PlayerInventory : MonoBehaviour
             // Verify if slot dont is null and dont have item
             if (_element.slot != null && _element.item == null)
             {
+                // If is true, return the slot index
                 _slot = int.Parse(_element.slot.name) - 1;
                 break;
             }
@@ -72,6 +73,7 @@ public class PlayerInventory : MonoBehaviour
                 // Verify if the item in slot is the same item who want to add
                 if (_item == _element.item)
                 {
+                    // If is true, return the slot index
                     _slot = int.Parse(_element.slot.name) - 1;
 
                     break;
