@@ -902,6 +902,7 @@ MonoBehaviour:
   slotPrefab: {fileID: 6080778269590843843, guid: c85a7f934a6e3034d8b23e75b12fd725, type: 3}
   inventoryUI: {fileID: 1783251928}
   inventorySize: 4
+  testOBJ: {fileID: 2894356607177976278, guid: 8d063faa0aebdd34689424803a520fb8, type: 3}
 --- !u!1 &1783251928
 GameObject:
   m_ObjectHideFlags: 0

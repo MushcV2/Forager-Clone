@@ -60,22 +60,18 @@ public class PlayerInventory : MonoBehaviour
 
         foreach (var _element in inventory)
         {
+            // Verify if slot dont is null and dont have item
             if (_element.slot != null && _element.item == null)
             {
-                Debug.Log($"Nenhum item encontrado no slot {_element.slot.name}");
-
                 _slot = int.Parse(_element.slot.name) - 1;
-
                 break;
             }
+            // If slot have item
             else if (_element.slot != null && _element.item != null)
             {
-                Debug.Log($"{_element.slot.name} tem o item {_element.item.name}");
-
+                // Verify if the item in slot is the same item who want to add
                 if (_item == _element.item)
                 {
-                    Debug.Log($"O item {_item.name} ja existe no {_element.slot.name}");
-
                     _slot = int.Parse(_element.slot.name) - 1;
 
                     break;
