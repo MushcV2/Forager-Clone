@@ -2,14 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDropped : MonoBehaviour
+public class ItemDropped : LifeController, IInteractable
 {
-    public int maxDrop;
+    [Header("Drop Variables")]
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject dropPrefab;
+    [SerializeField] private float delayPerHit;
+    [SerializeField] private int maxDrop;
 
-    private void OnCollisionEnter2D(Collision2D _other)
+    protected override void Start()
     {
-        if (!_other.gameObject.CompareTag("Player")) return;
+        base.Start();
 
-        _other.gameObject.GetComponent<PlayerInventory>().AddItem(gameObject, Random.Range(0, maxDrop));
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    public void Interact()
+    {
+        if (!canTakeDamage) return;
+
+        TakeDamage(1);
+        canTakeDamage = false;
+
+        GivePlayerItems();
+        CreateEffect();
+
+        Invoke(nameof(DisableCooldown), delayPerHit);
+    }
+
+    private void CreateEffect()
+    {
+        GameObject _drop = Instantiate(dropPrefab, transform.position, Quaternion.identity);
+        Rigidbody2D _rb = _drop.GetComponent<Rigidbody2D>();
+
+        _drop.GetComponent<SpriteRenderer>().sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+        _drop.transform.localScale = Vector2.one / 1.5f;
+
+        _rb.velocity = new Vector2(Random.Range(-2, 2), Random.Range(1, 6));
+
+        Destroy(_drop, 1);
+    }
+
+    private void GivePlayerItems()
+    {
+        int _rng = Random.Range(1, maxDrop + 1);
+        player.GetComponent<PlayerInventory>().AddItem(gameObject, _rng);
+    }
+
+    private void DisableCooldown()
+    {
+        canTakeDamage = true;
+    }
+
+    protected override void Death()
+    {
+        base.Death();
+
+        Destroy(gameObject);
     }
 }

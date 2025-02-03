@@ -30,7 +30,7 @@ public class LifeController : MonoBehaviour
         currentLife = Mathf.Min(currentLife + _life, maxLife);
     }
 
-    private void Death()
+    protected virtual void Death()
     {
         isDeath = true;
     }

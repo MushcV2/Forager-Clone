@@ -886,6 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850edc82741af894e963c1890830b5db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 1.5
 --- !u!114 &1386788515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,7 +981,7 @@ GameObject:
   - component: {fileID: 1857893529}
   - component: {fileID: 1857893530}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1110,7 +1111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d62567f82d0f444a98f38dee3c77f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDrop: 0
+  currentLife: 0
+  maxLife: 10
+  canTakeDamage: 1
+  player: {fileID: 0}
+  dropPrefab: {fileID: 2061022662844076462, guid: 3dcf5ab150730ff45a5a9ed9d310a109, type: 3}
+  delayPerHit: 1
+  maxDrop: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
