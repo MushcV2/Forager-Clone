@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerActions : MonoBehaviour
+public class PlayerInteract : MonoBehaviour
 {
     [Header("Interact")]
     [SerializeField] private float distance;
