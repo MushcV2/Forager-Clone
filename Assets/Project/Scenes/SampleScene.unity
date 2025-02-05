@@ -302,6 +302,7 @@ RectTransform:
   m_Children:
   - {fileID: 1074728310}
   - {fileID: 1783251929}
+  - {fileID: 2059355597}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -905,6 +906,8 @@ MonoBehaviour:
   highLight: {fileID: 1074728309}
   selectedSlot: 0
   inventorySize: 4
+  popUpPrefab: {fileID: 2348163500744526087, guid: 059bb481818ea4141b02bf3bc7ef539a, type: 3}
+  uiObject: {fileID: 2059355596}
   testOBJ: {fileID: 2894356607177976278, guid: 8d063faa0aebdd34689424803a520fb8, type: 3}
 --- !u!1 &1783251928
 GameObject:
@@ -1118,6 +1121,68 @@ MonoBehaviour:
   dropPrefab: {fileID: 2061022662844076462, guid: 3dcf5ab150730ff45a5a9ed9d310a109, type: 3}
   delayPerHit: 1
   maxDrop: 4
+--- !u!1 &2059355596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059355597}
+  - component: {fileID: 2059355598}
+  m_Layer: 5
+  m_Name: PopUpList
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2059355597
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059355596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 427897687}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -35, y: 110}
+  m_SizeDelta: {x: 210, y: 600}
+  m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &2059355598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059355596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 8
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

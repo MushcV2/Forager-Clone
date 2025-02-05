@@ -29,6 +29,10 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private int selectedSlot;
     [SerializeField] private int inventorySize;
 
+    [Header("PopUp")]
+    [SerializeField] private GameObject popUpPrefab;
+    [SerializeField] private GameObject uiObject;
+
     public GameObject testOBJ;
 
     public void Start()
@@ -75,6 +79,15 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    private void CreatePopUp(GameObject _item , int _amount)
+    {
+        GameObject _popUp = Instantiate(popUpPrefab);
+
+        _popUp.transform.SetParent(uiObject.transform, false);
+        _popUp.GetComponent<TextMeshProUGUI>().text = $"+{_amount} {_item.name}";
+        Destroy(_popUp, 1.5f);
+    }
+
     private int SelectSlot(GameObject _item)
     {
         int _slot = -1;
@@ -110,6 +123,8 @@ public class PlayerInventory : MonoBehaviour
         int _slotIndex = SelectSlot(_item);
         if (_slotIndex > -1)
         {
+            CreatePopUp(_item, _amount);
+
             GameObject _slot = inventory[_slotIndex].slot;
             Image _slotImage = _slot.transform.Find("Image").GetComponent<Image>();
             TextMeshProUGUI _slotAmount = _slot.transform.Find("Amount").GetComponent<TextMeshProUGUI>();
